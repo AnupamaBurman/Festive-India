@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Roboto&display=swap');
+
+.footer {
+  background: linear-gradient(to right, #2c2c2c, #1f1f1f);
+  color: #fff;
+  padding: 40px 20px 25px;
+  font-family: 'Roboto', sans-serif;
+  border-top: 5px solid #e2b714;
+}
+
+.footer-top {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.footer-top h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  margin-bottom: 6px;
+  color: #ffd700;
+}
+
+.footer-top p {
+  color: #ccc;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+}
+
+.footer-separator {
+  font-size: 1.2rem;
+  color: #e2b714;
+  margin-top: 6px;
+}
+
+.footer-info {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  gap: 16px;
+}
+
+.footer-info div {
+  flex: 1 1 180px;
+  text-align: center;
+}
+
+.footer-info h4 {
+  margin-bottom: 8px;
+  font-size: 1rem;
+  color: #ffd700;
+}
+
+.footer-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-info li {
+  margin: 4px 0;
+  font-size: 0.9rem;
+}
+
+.footer-info a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-info a:hover {
+  color: #fff;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #aaa;
+  border-top: 1px solid #444;
+  padding-top: 10px;
+}
