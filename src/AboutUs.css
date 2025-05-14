@@ -1,0 +1,224 @@
+/* AboutUs.css - Updated version with consistent styling */
+.aboutus-container {
+  min-height: 100vh;
+  width: 100%;
+  background: url('./components/bgfes.png') no-repeat center center/cover;
+  padding: 3rem 1rem;
+  position: relative;
+  perspective: 1000px;
+  overflow: hidden;
+}
+
+.aboutus-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  backdrop-filter: blur(6px);
+  background-color: rgba(255, 255, 255, 0.2);
+  z-index: 1;
+}
+
+/* Floating shapes animation */
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 0;
+  animation: float 15s infinite ease-in-out;
+  margin-top: 20%;
+}
+
+.shape1 {
+  width: 120px;
+  height: 120px;
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.shape2 {
+  width: 80px;
+  height: 80px;
+  bottom: 30%;
+  right: 15%;
+  animation-delay: -5s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+  50% {
+    transform: translateY(10px) rotate(-5deg);
+  }
+  75% {
+    transform: translateY(-15px) rotate(3deg);
+  }
+}
+
+.aboutus-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.aboutus-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  margin-top: 7%;
+  font-size: 10px;
+}
+
+.aboutus-header h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #e87c03;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.aboutus-tagline {
+  font-size: 1.3rem;
+  color: #555;
+  font-style: italic;
+}
+
+/* Consistent section styling for all content blocks */
+.aboutus-section {
+  margin-bottom: 3rem;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2rem;
+  padding: 2rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.aboutus-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(31, 38, 135, 0.4);
+}
+
+.aboutus-section h2 {
+  font-size: 1.8rem;
+  color: #442200;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+.aboutus-section p {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.aboutus-description {
+  text-align: center;
+}
+
+.aboutus-description p {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* Festival items styling */
+.festival-item {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
+}
+
+.festival-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.festival-item h3 {
+  font-size: 1.4rem;
+  color: #e87c03;
+  margin-bottom: 0.8rem;
+}
+
+.festival-item p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* Mission section styling */
+.aboutus-section ul {
+  padding-left: 1.5rem;
+}
+
+.aboutus-section li {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+}
+
+/* Thank you section special styling */
+.thank-you-section {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 136, 0, 0.15));
+  text-align: center;
+}
+
+.thank-you-section h2 {
+  font-size: 2.2rem;
+  color: #e87c03;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.thank-you-content {
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.thank-you-content p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+}
+
+.signature {
+  font-family: 'Brush Script MT', cursive;
+  font-size: 1.8rem;
+  color: #e87c03;
+  margin-top: 2rem;
+  opacity: 0.9;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .aboutus-header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .aboutus-section {
+    padding: 1.5rem;
+  }
+  
+  .thank-you-section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .signature {
+    font-size: 1.5rem;
+  }
+}

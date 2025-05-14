@@ -168,4 +168,17 @@
   color: #e2750f;
   white-space: nowrap;
 }
+.menu-link {
+  display: flex;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+  padding: 0.5rem 0;
+}
+
+.menu-link:hover {
+  color: #ff6600;
+  text-decoration: underline;
+}
+
 

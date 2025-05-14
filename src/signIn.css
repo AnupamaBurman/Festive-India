@@ -1,0 +1,499 @@
+/* SignIn.css */
+
+.signin-container {
+  height: 100vh;
+  width: 100%;
+  background: url('./components/bgfes.png') no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 2rem;
+  perspective: 1000px;
+  overflow: hidden;
+}
+
+.signin-container::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backdrop-filter: blur(6px);
+  background-color: rgba(255, 255, 255, 0.2);
+  z-index: 1;
+}
+
+/* Floating shapes animation */
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 0;
+  animation: float 15s infinite ease-in-out;
+  margin-top: 20%;
+}
+
+.shape1 {
+  width: 120px;
+  height: 120px;
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.shape2 {
+  width: 80px;
+  height: 80px;
+  bottom: 30%;
+  right: 15%;
+  animation-delay: -5s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+  50% {
+    transform: translateY(10px) rotate(-5deg);
+  }
+  75% {
+    transform: translateY(-15px) rotate(3deg);
+  }
+}
+
+/* Sign in box styling */
+.signin-box {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2rem;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 100%;
+  max-width: 450px;
+  transform-style: preserve-3d;
+  transition: all 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  overflow: hidden;
+}
+
+.signin-box:hover {
+  transform: translateY(-5px) rotateX(2deg) rotateY(-2deg);
+  box-shadow: 0 15px 35px 0 rgba(31, 38, 135, 0.4);
+}
+
+/* Header styling */
+.signin-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.signin-header h2 {
+  color: #442200;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-family: 'Georgia', serif;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tagline {
+  color: #333;
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
+/* Form styling */
+.signin-form {
+  width: 100%;
+  padding: 0 0.5rem;
+}
+
+.signin-form .form-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.signin-form label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  stroke: #e87c03;
+}
+
+.signin-form input {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+.focus-border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #e87c03, #ff9d4d);
+  transition: width 0.3s ease;
+  z-index: 1;
+  border-radius: 4px;
+}
+
+.form-group.focused .focus-border,
+.form-group:hover .focus-border {
+  width: 100%;
+}
+
+.form-group.focused input,
+.form-group:hover input {
+  border-color: rgba(232, 124, 3, 0.3);
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+}
+
+.signin-form input:focus {
+  outline: none;
+  border-color: #e87c03;
+}
+
+/* Submit button styling */
+.submit-btn {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #e87c03, #ff6f00);
+  color: white;
+  border: none;
+  border-radius: 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(232, 124, 3, 0.3);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.submit-btn:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ff6f00, #e87c03);
+  transition: all 0.4s ease;
+  z-index: -1;
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 20px rgba(232, 124, 3, 0.4);
+}
+
+.submit-btn:hover:before {
+  left: 0;
+}
+
+.submit-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 10px rgba(232, 124, 3, 0.3);
+}
+
+/* Loading animation */
+.submit-btn.sending {
+  background: #dadada;
+  cursor: not-allowed;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  margin: 0 5px;
+  animation: bounce 1s infinite ease-in-out;
+}
+
+.dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Form links styling */
+.form-links {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.forgot-link {
+  display: inline-block;
+  color: #333;
+  font-size: 0.95rem;
+  text-decoration: none;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.forgot-link:hover {
+  color: #e87c03;
+  transform: translateY(-2px);
+}
+
+.signup-prompt {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.signup-link {
+  color: #e87c03;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.signup-link:hover {
+  text-decoration: underline;
+}
+
+.back-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.back-link:hover {
+  color: #e87c03;
+  transform: translateX(-3px);
+}
+
+.back-link .icon {
+  margin-right: 5px;
+  width: 14px;
+  height: 14px;
+}
+
+/* Social sign in */
+.social-signin {
+  margin-top: 2rem;
+}
+
+.social-divider {
+  position: relative;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.social-divider:before,
+.social-divider:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 35%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.social-divider:before {
+  left: 0;
+}
+
+.social-divider:after {
+  right: 0;
+}
+
+.social-divider span {
+  display: inline-block;
+  padding: 0 10px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+}
+
+/* Social links */
+.social-links {
+  display: flex;
+  justify-content: center;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  margin: 0 0.5rem;
+  transition: all 0.3s ease;
+  color: #333;
+}
+
+.social-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.social-icon:hover {
+  transform: translateY(-5px);
+  background: rgba(232, 124, 3, 0.2);
+  color: #e87c03;
+}
+
+/* Success message styling */
+.signin-box.submitted {
+  background: rgba(255, 255, 255, 0.2);
+  animation: success-pulse 2s infinite;
+}
+
+@keyframes success-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(76, 175, 80, 0.8);
+  }
+}
+
+.success-message {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.success-icon {
+  margin: 0 auto 1.5rem;
+  width: 80px;
+  height: 80px;
+  background: rgba(76, 175, 80, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: zoom-in 0.5s ease-out;
+}
+
+.success-icon svg {
+  width: 50px;
+  height: 50px;
+  stroke: #4CAF50;
+}
+
+@keyframes zoom-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.success-message h2 {
+  color: #4CAF50;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  animation: fade-in 0.5s ease-out 0.2s both;
+}
+
+.success-message p {
+  color: #333;
+  font-size: 1.1rem;
+  animation: fade-in 0.5s ease-out 0.4s both;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .signin-box {
+    padding: 1.75rem 1.5rem;
+  }
+  
+  .signin-header h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .signin-box {
+    padding: 1.5rem 1rem;
+    margin: 0 0.5rem;
+  }
+  
+  .signin-header h2 {
+    font-size: 1.8rem;
+  }
+  
+  .shape {
+    display: none;
+  }
+  
+  .signin-form input {
+    padding: 0.7rem;
+  }
+}

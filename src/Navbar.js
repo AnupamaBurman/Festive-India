@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   Menu,
   Home,
@@ -10,39 +10,98 @@ import {
   Mail,
   Info
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const dropdownRef = useRef(null);
+  const menuIconRef = useRef(null); // ✅ Ref for the menu icon
+
+  const toggleMenu = () => setIsOpen(prev => !prev);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target) &&
+        menuIconRef.current &&
+        !menuIconRef.current.contains(event.target)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
 
   return (
     <>
       <div className="navbar">
-        <div className="icon-wrapper">
+        <Link to="/" className="icon-wrapper">
           <Home className="icon" />
-        </div>
+        </Link>
+
         <h1 className="navbar-title">FESTIVE INDIA</h1>
-        <div className="icon-wrapper" onClick={toggleMenu}>
+
+        {/* Assign the ref here ✅ */}
+        <div className="icon-wrapper" onClick={toggleMenu} ref={menuIconRef}>
           <Menu className="icon" />
         </div>
       </div>
 
       {isOpen && (
-        <div className="menu-dropdown-right">
+        <div className="menu-dropdown-right" ref={dropdownRef}>
           <ul className="menu-items-right">
-            <li><CalendarDays className="menu-icon" /> Calendar View</li>
-            <li><Flame className="menu-icon" /> Trending</li>
-            <li><Bookmark className="menu-icon" /> Saved Festivals</li>
-            <li><Clock className="menu-icon" /> My Calendar</li>
-            <li><Filter className="menu-icon" /> Filter</li>
-            <li><Mail className="menu-icon" /> Contact Us</li>
-            <li><Info className="menu-icon" /> About Us</li>
+            <li>
+              <Link to="/calendar" className="menu-link">
+                <CalendarDays className="menu-icon" /> Calendar View
+              </Link>
+            </li>
+            <li>
+              <Link to="/trending" className="menu-link">
+                <Flame className="menu-icon" /> Trending
+              </Link>
+            </li>
+            <li>
+              <Link to="/saved" className="menu-link">
+                <Bookmark className="menu-icon" /> Saved Festivals
+              </Link>
+            </li>
+            <li>
+              <Link to="/my-calendar" className="menu-link">
+                <Clock className="menu-icon" /> My Calendar
+              </Link>
+            </li>
+            <li>
+              <Link to="/filter" className="menu-link">
+                <Filter className="menu-icon" /> Filter
+              </Link>
+            </li>
+            <li>
+              <Link to="/contact-us" className="menu-link">
+                <Mail className="menu-icon" /> Contact Us
+              </Link>
+            </li>
+            <li>
+              <Link to="/About-us" className="menu-link">
+                <Info className="menu-icon" /> About Us
+              </Link>
+            </li>
           </ul>
           <div className="menu-buttons">
-            <button className="round-btn">Sign Up</button>
-            <button className="round-btn">Sign In</button>
-           
+            <Link to="/signup">
+              <button className="round-btn">Sign Up</button>
+            </Link>
+            <Link to="/signin">
+              <button className="round-btn">Sign In</button>
+            </Link>
           </div>
         </div>
       )}
